@@ -30,28 +30,23 @@ const StackNavigator = () => {
         <Stack.Screen
           name="Login"
           component={LoginScreen}
-          // options={{ headerShown: false }}
         />
         <Stack.Screen
           name="Search"
           component={SearchScreen}
-          // options={{ headerShown: false }}
         />
         <Stack.Screen
           name="Main"
           component={BottomNavigator}
-          // options={{ headerShown: false }}
         />
         <Stack.Screen
           name="Detail"
           component={DetailScreen}
-          // options={{ headerShown: false }}
         />
 
         <Stack.Screen
           name="Demo"
           component={DemoScreen}
-          // options={{ headerShown: false }}
         />
       </Stack.Navigator>
     </NavigationContainer>
