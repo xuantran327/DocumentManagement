@@ -65,13 +65,6 @@ export const styles = StyleSheet.create({
         justifyContent: "center",
         alignItems: "center",
     },
-    slides: {
-        alignItems: "center",
-        flexDirection: "row",
-        left: 0,
-        top: 0,
-        position: "absolute",
-    },
     carousel: {
         borderRadius: Border.br_base,
         zIndex: 0,
@@ -240,9 +233,6 @@ export const styles = StyleSheet.create({
         bottom: 100,
         height: 45,
         alignSelf: 'center',
-    },
-    card: {
-        height: 246,
     },
     list: {
         marginLeft: -163.5,

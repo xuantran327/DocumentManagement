@@ -27,7 +27,10 @@ export const Color = {
     colorDarkgray_200: "#999",
     colorBlack: "#000",
     colorLightgray: "#ccc",
+    // colorDarkslategray_200
     colorDarkslategray: "rgba(0, 70, 70, 0.1)",
+    colorDarkslategray_100: "#444",
+    colorWhitesmoke_100: "#f2f2f2",
 };
 /* Paddings */
 export const Padding = {
@@ -45,4 +48,6 @@ export const Border = {
     br_81xl: 100,
     br_base: 16,
     br_3xs: 10,
+    br_5xs: 8,
+    br_3xl: 22,
 };
