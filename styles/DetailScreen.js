@@ -35,7 +35,7 @@ export const styles = StyleSheet.create({
         // fontFamily: FontFamily.h6SemiBold,
         lineHeight: 24,
         top: 0,
-        position: "absolute",
+        position: "relative",
     },
     sHiuTypo: {
         fontSize: FontSize.size_base,
@@ -44,11 +44,10 @@ export const styles = StyleSheet.create({
         // fontFamily: FontFamily.h6SemiBold,
         lineHeight: 24,
         left: 0,
-        position: "absolute",
+        position: "relative",
     },
     parentPosition: {
         right: 0,
-        height: 24,
         width: 327,
         position: "relative",
     },
@@ -59,8 +58,8 @@ export const styles = StyleSheet.create({
     searchBarPosition: {
         backgroundColor: Color.colorGreen,
         flexDirection: "row",
-        left: "50%",
-        position: "absolute",
+        // left: "25%",
+        position: "relative",
     },
     searchBarFlexBox: {
         justifyContent: "center",
@@ -102,6 +101,7 @@ export const styles = StyleSheet.create({
     },
     tbT: {
         width: 189,
+        // height: 'auto',
     },
     sHiu: {
         width: 138,
@@ -110,35 +110,34 @@ export const styles = StyleSheet.create({
         top: 0,
     },
     tbTParent: {
-        // top: 300,
         top: 15,
         zIndex: 2,
-        height: 24,
+        flexDirection: 'row',
     },
     parent: {
         top: 18,
         zIndex: 3,
-        height: 24,
+        flexDirection: 'row',
     },
     tsNguynVnAParent: {
         top: 23,
         zIndex: 4,
-        height: 24,
+        flexDirection: 'row',
     },
     group: {
         top: 28,
         zIndex: 5,
-        height: 24,
+        flexDirection: 'row',
     },
     trngIHcCngNghThngParent: {
         top: 33,
-        height: 72,
         zIndex: 6,
+        flexDirection: 'row',
     },
     thngBoParent: {
         top: 38,
         zIndex: 7,
-        height: 24,
+        flexDirection: 'row',
     },
     oTo: {
         width: 190,
@@ -152,15 +151,17 @@ export const styles = StyleSheet.create({
     oToParent: {
         top: 43,
         zIndex: 8,
+        flexDirection: 'row',
     },
     cngVnNiBParent: {
         top: 48,
         zIndex: 9,
-        height: 24,
+        flexDirection: 'row',
     },
     vnBnChOIuHnhParent: {
         top: 53,
         zIndex: 10,
+        flexDirection: 'row',
     },
     iconAlignLeftParent: {
         top: 87,
@@ -172,7 +173,6 @@ export const styles = StyleSheet.create({
         zIndex: 12,
         width: 327,
         fontSize: FontSize.size_base,
-        direction: 'rtl',
         textAlign: "left",
         color: Color.colorBlack,
         // fontFamily: FontFamily.h6SemiBold,
@@ -194,6 +194,20 @@ export const styles = StyleSheet.create({
         left: "50%",
         position: "relative",
     },
+    htHiuLc: {
+        marginLeft: -164,
+        top: 115,
+        color: Color.colorDarkgray_200,
+        zIndex: 13,
+        textAlign: "center",
+        fontWeight: "700",
+        fontSize: FontSize.size_sm,
+        // fontFamily: FontFamily.h6SemiBold,
+        lineHeight: 24,
+        width: 327,
+        left: "50%",
+        position: "relative",
+    },
     paraprimarycenter: {
         // top: 0,
         left: 18,
@@ -205,8 +219,8 @@ export const styles = StyleSheet.create({
         zIndex: 0,
     },
     buttonprimarydefault: {
-        marginLeft: -75,
-        top: 812,
+        // marginLeft: -75,
+        top: 118,
         borderRadius: 22,
         shadowColor: "rgba(0, 110, 233, 0.1)",
         shadowOffset: {
@@ -222,9 +236,10 @@ export const styles = StyleSheet.create({
         paddingVertical: Padding.p_mini,
         zIndex: 14,
         alignItems: "center",
-        // position: 'relative',
+        position: 'relative',
         bottom: 100,
         height: 45,
+        alignSelf: 'center',
     },
     card: {
         height: 246,
