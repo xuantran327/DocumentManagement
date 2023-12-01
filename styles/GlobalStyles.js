@@ -31,6 +31,8 @@ export const Color = {
     colorDarkslategray: "rgba(0, 70, 70, 0.1)",
     colorDarkslategray_100: "#444",
     colorWhitesmoke_100: "#f2f2f2",
+    colorDimgray_100: "#666",
+    systemGreySGL1: "#8e8e93",
 };
 /* Paddings */
 export const Padding = {
@@ -42,6 +44,7 @@ export const Padding = {
     p_9xs: 4,
     p_mini: 15,
     p_21xl: 40,
+    p_166xl: 185
 };
 /* border radiuses */
 export const Border = {
@@ -50,4 +53,5 @@ export const Border = {
     br_3xs: 10,
     br_5xs: 8,
     br_3xl: 22,
+    br_smi_8: 13,
 };

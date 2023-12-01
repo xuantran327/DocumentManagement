@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { View, TouchableOpacity, Text, Image, ScrollView, RefreshControl } from 'react-native';
+import React from 'react';
+import { View, TouchableOpacity, Text, ScrollView, RefreshControl } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import axios from "axios";
 import AsyncStorage from '@react-native-async-storage/async-storage';

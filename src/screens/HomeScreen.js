@@ -1,14 +1,9 @@
-import React, { useState } from 'react';
-import { View, Text, Image, Pressable, ScrollView, RefreshControl } from 'react-native';
-import { useNavigation } from '@react-navigation/native';
-import axios from "axios";
-import AsyncStorage from '@react-native-async-storage/async-storage';
+import React from 'react';
+import { View, Text, Pressable, ScrollView, RefreshControl } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import { SearchBar } from 'react-native-elements';
 
 import { styles } from '../../styles/HomeScreen';
-import { showAlert } from '../../functions';
-import config from '../constants/config';
 import { Color } from '../../styles/GlobalStyles';
 import SlideList from '../components/SlideList';
 import NewDocumentList from '../components/NewDocumentList';
