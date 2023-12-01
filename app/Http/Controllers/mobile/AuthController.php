@@ -39,7 +39,7 @@ class AuthController extends Controller
                 'status' => 200,
                 'api_token' => $token,
                 'expires_at' => $expiresAt->toDateTimeString(),
-                // 'userId' => Auth::user()->id,
+                'user_id' => Auth::user()->id,
                 // 'roleId' => Auth::user()->role_id,
                 // 'name' => Auth::user()->name,
             ]);
