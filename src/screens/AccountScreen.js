@@ -1,20 +1,29 @@
 import React, { useState } from 'react';
-import { View, TouchableOpacity, Text, Image } from 'react-native';
+import { View, TouchableOpacity, Text, Image, ScrollView, RefreshControl } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import axios from "axios";
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import Icon from 'react-native-vector-icons/FontAwesome';
-import { SearchBar } from 'react-native-elements';
 
 import { styles } from '../../styles/AccountScreen';
 import { showAlert } from '../../functions';
 import config from '../constants/config';
-import DocumentList from '../components/DocumentList';
 import { Color } from '../../styles/GlobalStyles';
+import AccountAvatar from '../components/AccountAvatar';
 
-const AccountScreen = () => {
+const AccountScreen = props => {
 
   const navigation = useNavigation();
+  const [refreshing, setRefreshing] = React.useState(false);
+  const onRefresh = React.useCallback(() => {
+    setRefreshing(true);
+    wait(2000).then(() => {
+      setRefreshing(false);
+    });
+  }, []);
+  const wait = timeout => {
+    return new Promise(resolve => setTimeout(resolve, timeout));
+  };
 
   const checkTokenExpiration = async () => {
     const expires_at = await AsyncStorage.getItem('expires_at');
@@ -43,6 +52,7 @@ const AccountScreen = () => {
       });
       // console.log(response.data);
       showAlert('Thông báo', response.data.message);
+      await AsyncStorage.removeItem('user_id');
       await AsyncStorage.removeItem('api_token');
       await AsyncStorage.removeItem('expires_at');
       navigation.reset({
@@ -59,27 +69,19 @@ const AccountScreen = () => {
       <View style={[styles.searchBar, styles.searchBarPosition]}>
         <Text style={[styles.tiKhon, styles.tiKhonFlexBox]}>Tài khoản</Text>
       </View>
-      <View style={styles.list}>
-        <View style={[styles.maskParent, styles.maskPosition]}>
-          <View style={[styles.mask, styles.maskPosition]}>
-            <View style={styles.g1}>
-              <Image
-                style={[styles.photo1Icon, styles.photo1IconLayout]}
-                contentFit="cover"
-              // source={require("../assets/photo1.png")}
-              />
-            </View>
-          </View>
-          <View style={styles.rapunzelxuantrangmailcomParent}>
-            <Text
-              style={[styles.rapunzelxuantrangmailcom, styles.tiKhonFlexBox]}
-            >
-              rapunzelxuantran@gmail.com
-            </Text>
-            <Text style={[styles.xunTrn, styles.xunTrnTypo]}>Xuân Trần</Text>
-          </View>
-        </View>
-        <TouchableOpacity style={[styles.rectangleParent, styles.groupParentLayout]}>
+      <ScrollView
+        refreshControl={
+          <RefreshControl refreshing={refreshing} onRefresh={onRefresh} />
+        }
+        style={styles.list}
+        showsVerticalScrollIndicator={false}
+        contentContainerStyle={{ height: 'auto', width: 328, paddingBottom: 78 }}
+      >
+        <AccountAvatar refreshing={refreshing} />
+        <TouchableOpacity 
+          style={[styles.rectangleParent, styles.groupParentLayout]}
+          onPress={() => props.navigation.navigate('Profile')}
+        >
           <View style={[styles.groupChild, styles.groupParentLayout]} />
           <Text style={[styles.thngTinC, styles.xunTrnTypo]}>
             Thông tin cá nhân
@@ -106,7 +108,7 @@ const AccountScreen = () => {
           <Text style={[styles.thngTinC, styles.xunTrnTypo]}>Đăng xuất</Text>
           <Icon name="sign-out" size={24} color={Color.colorBlack} style={styles.userAltIcon} />
         </TouchableOpacity>
-      </View>
+      </ScrollView>
     </View>
   );
 };

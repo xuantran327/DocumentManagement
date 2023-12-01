@@ -1,5 +1,5 @@
-import React, { useState, useEffect, useRef } from 'react';
-import { View, Text, Image, Alert, ScrollView } from 'react-native';
+import React, { useState, useEffect } from 'react';
+import { View, Text, Image, ScrollView } from 'react-native';
 import axios from "axios";
 import { useIsFocused } from '@react-navigation/native';
 

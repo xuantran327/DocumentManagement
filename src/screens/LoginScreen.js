@@ -49,6 +49,7 @@ const LoginScreen = () => {
       });
       showAlert('Thông báo', response.data.message);
       if (response.data.status === 200) {
+        await AsyncStorage.setItem('user_id', response.data.user_id.toString());
         await AsyncStorage.setItem('api_token', response.data.api_token);
         await AsyncStorage.setItem('expires_at', response.data.expires_at);
         navigation.navigate('Main');

@@ -10,7 +10,7 @@ export const styles = StyleSheet.create({
         height: 100,
         left: 0,
         top: 0,
-        position: "absolute",
+        position: "relative",
     },
     tiKhonFlexBox: {
         textAlign: "left",
@@ -25,7 +25,7 @@ export const styles = StyleSheet.create({
         height: 55,
         left: 0,
         width: 328,
-        position: "absolute",
+        position: "relative",
     },
     searchBarPosition: {
         width: 375,
@@ -35,21 +35,10 @@ export const styles = StyleSheet.create({
     },
     photo1Icon: {
         height: "100%",
-        top: "6.36%",
-        right: "-5.72%",
-        bottom: "-6.36%",
-        left: "5.72%",
         maxWidth: "100%",
         maxHeight: "100%",
         position: "absolute",
         overflow: "hidden",
-    },
-    g1: {
-        top: -21,
-        left: -21,
-        width: 371,
-        height: 333,
-        position: "absolute",
     },
     mask: {
         borderRadius: 50,
@@ -62,7 +51,7 @@ export const styles = StyleSheet.create({
         color: "#6e6e6e",
         // fontFamily: FontFamily.h6SemiBold,
         lineHeight: 24,
-        width: 210,
+        width: '100%',
         left: 0,
         fontSize: FontSize.size_base,
     },
@@ -77,9 +66,9 @@ export const styles = StyleSheet.create({
     },
     rapunzelxuantrangmailcomParent: {
         top: 24,
-        left: 118,
+        left: 115,
         height: 51,
-        width: 210,
+        width: 213,
         position: "absolute",
     },
     maskParent: {
@@ -107,39 +96,34 @@ export const styles = StyleSheet.create({
         overflow: "hidden",
     },
     rectangleParent: {
-        top: 120,
+        top: 20,
         zIndex: 1,
     },
     rectangleGroup: {
-        top: 183,
+        top: 28,
         zIndex: 2,
     },
     rectangleContainer: {
-        top: 246,
+        top: 36,
         zIndex: 3,
     },
     groupView: {
-        top: 309,
+        top: 44,
         zIndex: 4,
     },
     rectangleParent1: {
-        top: 372,
+        top: 52,
         zIndex: 5,
     },
     list: {
         marginLeft: -163.5,
         top: 114,
-        height: 638,
+        height: 593,
         paddingBottom: Padding.p_71xl,
         width: 328,
         left: "50%",
         position: "absolute",
-    },
-    tabbar5Icon: {
-        bottom: 0,
-        borderRadius: Border.br_5xs,
-        height: 60,
-        overflow: "hidden",
+        flexGrow: 1,
     },
     tiKhon: {
         marginLeft: -42,

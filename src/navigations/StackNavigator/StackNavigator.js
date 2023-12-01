@@ -7,6 +7,7 @@ import SearchScreen from '../../screens/SearchScreen';
 import DemoScreen from '../../screens/DemoScreen';
 import BottomNavigator from '../BottomNavigator/BottomNavigator';
 import DetailScreen from '../../screens/DetailScreen';
+import ProfileScreen from '../../screens/ProfileScreen';
 
 const Stack = createNativeStackNavigator();
 
@@ -42,6 +43,10 @@ const StackNavigator = () => {
         <Stack.Screen
           name="Detail"
           component={DetailScreen}
+        />
+        <Stack.Screen
+          name="Profile"
+          component={ProfileScreen}
         />
 
         <Stack.Screen
