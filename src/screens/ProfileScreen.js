@@ -36,6 +36,12 @@ const ProfileScreen = props => {
     const [tmpFilename, setTmpFilename] = useState('');
     const [tmpUri, setTmpUri] = useState('');
 
+    const isValidInput = (name, phoneNumber) => {
+        if (name === '' || phoneNumber === '') return false;
+        if (name.length < 3 || name.length > 30) return false;
+        return true;
+    }
+
     const handleChoosePhoto = async () => {
         let result = await ImagePicker.launchImageLibraryAsync({
             mediaTypes: ImagePicker.MediaTypeOptions.Images,
@@ -108,6 +114,10 @@ const ProfileScreen = props => {
         }
     };
     const editUser = async () => {
+        if (!isValidInput(tmpName, tmpPhoneNumber)) {
+            Alert.alert('Thông báo', 'Bạn phải nhập thông tin hợp lệ!');
+            return;
+        }
         try {
             const userId = JSON.parse(await AsyncStorage.getItem('@session')).userId;
             const response = await axios.patch(
@@ -139,7 +149,8 @@ const ProfileScreen = props => {
                 setFilename(tmpFilename);
             }
         } catch (error) {
-            // Alert.alert('Error', error.message);
+            Alert.alert('Thông báo', error.message);
+            // console.log(error);
         }
     };
     const getUserById = async () => {
