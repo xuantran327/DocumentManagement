@@ -85,7 +85,10 @@ const AccountScreen = props => {
           <Text style={[styles.thngTinC, styles.xunTrnTypo]}>Giới thiệu</Text>
           <Icon name="info-circle" size={24} color={Color.colorBlack} style={styles.userAltIcon} />
         </TouchableOpacity>
-        <TouchableOpacity style={[styles.rectangleContainer, styles.groupParentLayout]}>
+        <TouchableOpacity 
+          style={[styles.rectangleContainer, styles.groupParentLayout]}
+          onPress={() => props.navigation.navigate('Contact')}
+        >
           <View style={[styles.groupChild, styles.groupParentLayout]} />
           <Text style={[styles.thngTinC, styles.xunTrnTypo]}>Liên hệ</Text>
           <Icon name="address-book" size={20} color={Color.colorBlack} style={styles.userAltIcon1} />

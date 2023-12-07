@@ -4,11 +4,11 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
 import LoginScreen from '../../screens/LoginScreen';
 import SearchScreen from '../../screens/SearchScreen';
-import DemoScreen from '../../screens/DemoScreen';
 import BottomNavigator from '../BottomNavigator/BottomNavigator';
 import DetailScreen from '../../screens/DetailScreen';
 import ProfileScreen from '../../screens/ProfileScreen';
 import IntroductionScreen from '../../screens/IntroductionScreen';
+import ContactScreen from '../../screens/ContactScreen';
 
 const Stack = createNativeStackNavigator();
 
@@ -54,10 +54,9 @@ const StackNavigator = props => {
           name="Introduction"
           component={IntroductionScreen}
         />
-
         <Stack.Screen
-          name="Demo"
-          component={DemoScreen}
+          name="Contact"
+          component={ContactScreen}
         />
       </Stack.Navigator>
     </NavigationContainer>
