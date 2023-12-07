@@ -72,7 +72,7 @@
                                 <tr class="odd gradeX" align="center">
                                     <td>{{ $value->id }}</td> <?php $i++; ?>
                                     <td>{{ $value->so_hieu }}</td>
-                                    <td>{{ Carbon\Carbon::parse($value->ngay_ky)->format('d/m/Y') }}</td>
+                                    <td>{{ Carbon\Carbon::parse($value->ngay_ky)->format('Y/m/d') }}</td>
                                     <td>{{ $value->trich_yeu_noi_dung }}</td>
                                     <!-- kiểm tra ngaychuyen khác null -->
                                     @if ($value->ngay_chuyen != '')
