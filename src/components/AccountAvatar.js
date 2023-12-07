@@ -60,11 +60,8 @@ const AccountAvatar = props => {
                 
             </View>
             <View style={styles.rapunzelxuantrangmailcomParent}>
-                <Text style={[styles.xunTrn, styles.xunTrnTypo]}>{data.name}</Text>
-                <Text
-                    style={[styles.rapunzelxuantrangmailcom, styles.tiKhonFlexBox]}
-                    numberOfLines={1} ellipsizeMode='tail'
-                >
+                <Text style={[styles.xunTrn, styles.xunTrnTypo]} numberOfLines={1} ellipsizeMode='tail'>{data.name}</Text>
+                <Text style={[styles.rapunzelxuantrangmailcom, styles.tiKhonFlexBox]} numberOfLines={1} ellipsizeMode='tail'>
                     {data.email}
                 </Text>
             </View>
