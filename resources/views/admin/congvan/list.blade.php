@@ -76,7 +76,7 @@
                                     <td>{{ $value->trich_yeu_noi_dung }}</td>
                                     <!-- kiểm tra ngaychuyen khác null -->
                                     @if ($value->ngay_chuyen != '')
-                                        <td>{{ Carbon\Carbon::parse($value->ngay_chuyen)->format('d/m/Y') }}</td>
+                                        <td>{{ Carbon\Carbon::parse($value->ngay_chuyen)->format('Y/m/d') }}</td>
                                     @else
                                         <td>-</td>
                                     @endif
