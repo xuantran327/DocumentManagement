@@ -14,7 +14,7 @@ const AccountAvatar = props => {
     const [isLoaded, setIsLoaded] = useState(false);
 
     const getAccountAvatar = async () => {
-        const userId = await AsyncStorage.getItem('user_id');
+        const userId = JSON.parse(await AsyncStorage.getItem('@session')).userId;
         axios.get(`${config.apiBaseUrl}/api/user/${userId}`, {
             headers: {
                 'Content-Type': 'application/json',

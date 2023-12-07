@@ -25,21 +25,9 @@ const AccountScreen = props => {
     return new Promise(resolve => setTimeout(resolve, timeout));
   };
 
-  const checkTokenExpiration = async () => {
-    const expires_at = await AsyncStorage.getItem('expires_at');
-    const expiration = new Date(expires_at);
-    // console.log(new Date());
-    if (new Date() >= expiration) {
-      // Token has expired, log out the user
-      await handleLogout();
-      clearInterval(intervalId);
-    }
-  };
-  const intervalId = setInterval(checkTokenExpiration, 1000); // Check every second
-
   const handleLogout = async () => {
     // console.log("Logged out.");
-    const api_token = await AsyncStorage.getItem('api_token');
+    const api_token = JSON.parse(await AsyncStorage.getItem('@session')).apiToken;
     try {
       const response = await axios({
         method: 'post',
@@ -52,9 +40,10 @@ const AccountScreen = props => {
       });
       // console.log(response.data);
       showAlert('Thông báo', response.data.message);
-      await AsyncStorage.removeItem('user_id');
-      await AsyncStorage.removeItem('api_token');
-      await AsyncStorage.removeItem('expires_at');
+      // await AsyncStorage.removeItem('user_id');
+      // await AsyncStorage.removeItem('api_token');
+      // await AsyncStorage.removeItem('expires_at');
+      await AsyncStorage.removeItem('@session');
       navigation.reset({
         index: 0,
         routes: [{ name: 'Login' }],
@@ -86,7 +75,7 @@ const AccountScreen = props => {
           <Text style={[styles.thngTinC, styles.xunTrnTypo]}>
             Thông tin cá nhân
           </Text>
-          <Icon name="user" size={24} color={Color.colorBlack} style={styles.userAltIcon} />
+          <Icon name="user" size={22} color={Color.colorBlack} style={styles.userAltIcon1} />
         </TouchableOpacity>
         <TouchableOpacity style={[styles.rectangleGroup, styles.groupParentLayout]}>
           <View style={[styles.groupChild, styles.groupParentLayout]} />
@@ -96,7 +85,7 @@ const AccountScreen = props => {
         <TouchableOpacity style={[styles.rectangleContainer, styles.groupParentLayout]}>
           <View style={[styles.groupChild, styles.groupParentLayout]} />
           <Text style={[styles.thngTinC, styles.xunTrnTypo]}>Liên hệ</Text>
-          <Icon name="address-book" size={24} color={Color.colorBlack} style={styles.userAltIcon} />
+          <Icon name="address-book" size={20} color={Color.colorBlack} style={styles.userAltIcon1} />
         </TouchableOpacity>
         <TouchableOpacity style={[styles.groupView, styles.groupParentLayout]}>
           <View style={[styles.groupChild, styles.groupParentLayout]} />

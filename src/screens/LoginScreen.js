@@ -49,9 +49,19 @@ const LoginScreen = () => {
       });
       showAlert('Thông báo', response.data.message);
       if (response.data.status === 200) {
-        await AsyncStorage.setItem('user_id', response.data.user_id.toString());
-        await AsyncStorage.setItem('api_token', response.data.api_token);
-        await AsyncStorage.setItem('expires_at', response.data.expires_at);
+        const sessionData = {
+          email: email,
+          userId: response.data.user_id.toString(),
+          apiToken: response.data.api_token,
+          loginTime: new Date().getTime(),
+          expiryTime: new Date().getTime() + 7 * 24 * 60 * 60 * 1000,
+        };
+        // await AsyncStorage.setItem('user_id', response.data.user_id.toString());
+        // await AsyncStorage.setItem('api_token', response.data.api_token);
+        // await AsyncStorage.setItem('expires_at', response.data.expires_at);
+        await AsyncStorage.setItem('@session', JSON.stringify(sessionData));
+        // const data = JSON.parse(await AsyncStorage.getItem('@session')).expiryTime;
+        // console.log(data);
         navigation.navigate('Main');
       }
     } catch (error) {

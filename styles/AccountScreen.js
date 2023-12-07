@@ -95,6 +95,14 @@ export const styles = StyleSheet.create({
         position: "absolute",
         overflow: "hidden",
     },
+    userAltIcon1: {
+        top: 17,
+        left: 22,
+        width: 24,
+        height: 24,
+        position: "absolute",
+        overflow: "hidden",
+    },
     rectangleParent: {
         top: 20,
         zIndex: 1,

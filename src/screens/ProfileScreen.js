@@ -4,6 +4,8 @@ import { useNavigation } from '@react-navigation/native';
 import axios from "axios";
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import Icon from 'react-native-vector-icons/FontAwesome';
+import * as ImagePicker from 'expo-image-picker';
+import DateTimePicker from '@react-native-community/datetimepicker';
 
 import { styles } from '../../styles/ProfileScreen';
 import { showAlert } from '../../functions';
@@ -25,7 +27,7 @@ const ProfileScreen = props => {
     const [editable, setEditable] = useState(false);
 
     const getUserById = async () => {
-        const userId = await AsyncStorage.getItem('user_id');
+        const userId = JSON.parse(await AsyncStorage.getItem('@session')).userId;
         axios.get(`${config.apiBaseUrl}/api/user/${userId}`, {
             headers: {
                 'Content-Type': 'application/json',
@@ -59,7 +61,7 @@ const ProfileScreen = props => {
                 <Text style={[styles.thngTinC, styles.hVTnPosition1]}>
                     Thông tin cá nhân
                 </Text>
-                <TouchableOpacity style={[styles.editIcon]}>
+                <TouchableOpacity style={[styles.editIcon]} onPress={() => setEditable(true)}>
                     <Icon name="edit" size={24} color={Color.colorWhite} />
                 </TouchableOpacity>
             </View>
@@ -105,14 +107,14 @@ const ProfileScreen = props => {
                             return (
                                 <View key={key} style={[styles.parentPosition]}>
                                     {gender == key ? (
-                                        <Pressable style={[styles.parentPosition]}>
+                                        <Pressable style={[styles.parentPosition]} disabled={editable}>
                                             <Text style={[styles.n, styles.nTypo]}>{data}</Text>
                                             <View style={styles.container}>
                                                 <View style={styles.circle} />
                                             </View>
                                         </Pressable>
                                     ) : (
-                                        <Pressable style={[styles.parentPosition]}>
+                                        <Pressable style={[styles.parentPosition]} disabled={editable}>
                                             <Text style={[styles.n, styles.nTypo]}>{data}</Text>
                                             <View style={styles.container}>
                                             </View>
