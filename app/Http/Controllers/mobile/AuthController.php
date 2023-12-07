@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\Auth;
 use App\Models\User;
 use Illuminate\Support\Str;
 // use Illuminate\Support\Facades\Date;
-use Illuminate\Support\Carbon;
+// use Illuminate\Support\Carbon;
 // use Illuminate\Support\Facades\Log;
 
 class AuthController extends Controller
@@ -31,14 +31,13 @@ class AuthController extends Controller
             $user = Auth::user();
             $token = Str::random(64);
             $user->api_token = $token;
-            $expiresAt = Carbon::now('Asia/Ho_Chi_Minh')->addWeek();
+            // $expiresAt = Carbon::now('Asia/Ho_Chi_Minh')->addWeek();
             $user->save();
 
             return response()->json([
                 'message' => 'Đăng nhập thành công!',
                 'status' => 200,
                 'api_token' => $token,
-                'expires_at' => $expiresAt->toDateTimeString(),
                 'user_id' => Auth::user()->id,
                 // 'roleId' => Auth::user()->role_id,
                 // 'name' => Auth::user()->name,

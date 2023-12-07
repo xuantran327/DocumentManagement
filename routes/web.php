@@ -2,6 +2,8 @@
 
 use App\Http\Controllers\TestController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\admin\AuthController;
+use App\Http\Controllers\admin\DocumentController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,4 +19,28 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
-Route::get('test', [TestController::class,'test']);
+// Route::get('test', [TestController::class,'test']);
+
+Route::get('/', function () {
+    return view('admin.login');
+});
+Route::get('admin/login', [AuthController::class,'getLogin']);
+Route::post('admin/login', [AuthController::class,'postLogin']);
+Route::get('admin/logout', [AuthController::class,'getLogout']);
+
+Route::group(['prefix' => 'admin', 'middleware' => 'adminLogin'], function () {
+    Route::get('/', [DocumentController::class,'getList']);
+    Route::get('home', [DocumentController::class,'getList']);
+	Route::group(['prefix' => 'cong-van'], function () {
+        Route::get('/', [DocumentController::class,'getList']);
+		Route::get('list', [DocumentController::class,'getList']);
+
+        Route::get('add', [DocumentController::class,'getAdd']);
+		Route::post('add', [DocumentController::class,'postAdd']);
+
+		Route::get('edit/{id}', [DocumentController::class,'getEdit']);
+		Route::post('edit/{id}', [DocumentController::class,'postEdit']);
+
+		Route::get('delete/{id}', [DocumentController::class,'getDelete']);
+	});
+});
