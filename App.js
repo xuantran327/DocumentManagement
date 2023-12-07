@@ -15,7 +15,7 @@ import StackNavigator from './src/navigations/StackNavigator/StackNavigator';
 export default function App() {
 
   const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const [isLoading, setIsLoading] = useState(true);
+  const [isLoaded, setIsLoaded] = useState(false);
   const checkSession = async () => {
     try {
       const sessionData = JSON.parse(await AsyncStorage.getItem('@session'));
@@ -40,7 +40,7 @@ export default function App() {
         setIsLoggedIn(false);
         // console.log(isLoggedIn);
       }
-      setIsLoading(false);
+      setIsLoaded(true);
     } catch (e) {
       // Handle error
       console.error(e);
@@ -56,7 +56,7 @@ export default function App() {
   //     <StatusBar style="auto" />
   //   </View>
   // );
-  if (!isLoading) {
+  if (isLoaded) {
     return <StackNavigator isLoggedIn={isLoggedIn}/>;
   }
 }
