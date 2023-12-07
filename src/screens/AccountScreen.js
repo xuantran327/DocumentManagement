@@ -77,7 +77,10 @@ const AccountScreen = props => {
           </Text>
           <Icon name="user" size={22} color={Color.colorBlack} style={styles.userAltIcon1} />
         </TouchableOpacity>
-        <TouchableOpacity style={[styles.rectangleGroup, styles.groupParentLayout]}>
+        <TouchableOpacity 
+          style={[styles.rectangleGroup, styles.groupParentLayout]}
+          onPress={() => props.navigation.navigate('Introduction')}
+        >
           <View style={[styles.groupChild, styles.groupParentLayout]} />
           <Text style={[styles.thngTinC, styles.xunTrnTypo]}>Giới thiệu</Text>
           <Icon name="info-circle" size={24} color={Color.colorBlack} style={styles.userAltIcon} />

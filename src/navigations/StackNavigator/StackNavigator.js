@@ -8,6 +8,7 @@ import DemoScreen from '../../screens/DemoScreen';
 import BottomNavigator from '../BottomNavigator/BottomNavigator';
 import DetailScreen from '../../screens/DetailScreen';
 import ProfileScreen from '../../screens/ProfileScreen';
+import IntroductionScreen from '../../screens/IntroductionScreen';
 
 const Stack = createNativeStackNavigator();
 
@@ -48,6 +49,10 @@ const StackNavigator = props => {
         <Stack.Screen
           name="Profile"
           component={ProfileScreen}
+        />
+        <Stack.Screen
+          name="Introduction"
+          component={IntroductionScreen}
         />
 
         <Stack.Screen

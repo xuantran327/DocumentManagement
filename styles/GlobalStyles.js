@@ -54,4 +54,6 @@ export const Border = {
     br_5xs: 8,
     br_3xl: 22,
     br_smi_8: 13,
+    br_6xs_4: 6,
+    br_61xl: 80,
 };
